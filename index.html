@@ -309,12 +309,12 @@
         <div class="lk">
           <div class="lk-t">Thiệp mẫu cho khách xem trước</div>
           <a href="https://dolinhanh-bridal.github.io/thiep-mau-dolinhanh/" target="_blank" rel="noopener">dolinhanh-bridal.github.io/thiep-mau-dolinhanh/</a>
-          
+          <button class="btn" type="button" data-copy="https://dolinhanh-bridal.github.io/thiep-mau-dolinhanh/">Copy link thiệp mẫu</button>
         </div>
         <div class="lk">
           <div class="lk-t">Form làm thiệp — khách tự điền</div>
           <a href="https://script.google.com/macros/s/AKfycbwVWHJMBZFw6XX7t2Haqs9AT1UTgPmdKUHLzm69Si_h7-ylKNd7HsfcwUQeI4AL-uiLVw/exec" target="_blank" rel="noopener">script.google.com/macros/s/AKfycbwVWHJM…/exec</a>
-          
+          <button class="btn" type="button" data-copy="https://script.google.com/macros/s/AKfycbwVWHJMBZFw6XX7t2Haqs9AT1UTgPmdKUHLzm69Si_h7-ylKNd7HsfcwUQeI4AL-uiLVw/exec">Copy link form</button>
         </div>
       </div>
     </div>
@@ -421,9 +421,6 @@
 
 <script>
 (function(){
-  var DOC = "notes/vi-binh";
-  var state = {f:{}, ck:{}, tl:{}};
-  var db = null, timer = null, saveEl = document.getElementById("save");
   var MAC_DINH = {
     chup: [
       ["03:00","Trang điểm & làm tóc","Book Care có mặt cùng cô dâu"],
@@ -443,66 +440,27 @@
       ["21:00","Kết thúc — ekip bàn giao",""]
     ]
   };
-
-  function bao(t){ saveEl.textContent = t; }
-  function gio(){
-    var d = new Date();
-    return ("0"+d.getHours()).slice(-2) + ":" + ("0"+d.getMinutes()).slice(-2);
-  }
-
-  function capNhatChip(){
-    document.querySelectorAll(".sec").forEach(function(sec){
-      var chip = sec.querySelector("[data-chip]");
-      var oIn = sec.querySelectorAll(".body input[type=text][data-k], .body textarea[data-k]");
-      var cks = sec.querySelectorAll(".body input[type=checkbox][data-k]");
-      var day = 0, tong = oIn.length + cks.length, tick = 0;
-      oIn.forEach(function(i){ if(i.value.trim()) day++; });
-      cks.forEach(function(c){ if(c.checked) tick++; });
-      day += tick;
-      chip.className = "chip";
-      if(day === 0){ chip.textContent = "Chưa có"; }
-      else if(day === tong){ chip.textContent = "Đã chốt"; chip.classList.add("xong"); }
-      else { chip.textContent = "Đang làm · " + day + "/" + tong; chip.classList.add("dang"); }
+  function veTL(ten, rows){
+    var box=document.querySelector('[data-tl="'+ten+'"]'); if(!box) return;
+    box.textContent="";
+    rows.forEach(function(r){
+      var row=document.createElement("div"); row.className="row";
+      var h1=document.createElement("div"); h1.className="h"; h1.textContent=r[0];
+      var v=document.createElement("div"); v.className="v";
+      var v1=document.createElement("div"); v1.className="viec"; v1.textContent=r[1]; v.appendChild(v1);
+      if(r[2]){ var v2=document.createElement("div"); v2.className="phu"; v2.textContent=r[2]; v.appendChild(v2); }
+      row.append(h1,v); box.appendChild(row);
     });
   }
+  veTL("chup", MAC_DINH.chup);
+  veTL("tiec", MAC_DINH.tiec);
 
-  function danhDau(el){
-    var li = el.closest("li"), r = el.closest(".r");
-    if(li) li.classList.toggle("on", el.checked);
-    if(r) r.classList.toggle("on", el.checked);
-  }
-
-  function dongTL(box, gio, viec, phu){
-    var row=document.createElement("div"); row.className="row";
-    var h1=document.createElement("div"); h1.className="h"; h1.textContent=gio;
-    var v=document.createElement("div"); v.className="v";
-    var v1=document.createElement("div"); v1.className="viec"; v1.textContent=viec; v.appendChild(v1);
-    if(phu){var v2=document.createElement("div"); v2.className="phu"; v2.textContent=phu; v.appendChild(v2);}
-    row.append(h1,v); box.appendChild(row);
-  }
-  function veTL(ten, rows){
-    var box=document.querySelector('[data-tl="'+ten+'"]'); box.textContent="";
-    rows.forEach(function(r){ dongTL(box, r[0], r[1], r[2]); });
-  }
-
-  function gom(){
-
-  document.querySelectorAll(".sec .head").forEach(function(h){
-    h.addEventListener("click", function(){
-      var sec = h.parentElement, dangMo = sec.classList.contains("open");
+  document.querySelectorAll(".sec .head").forEach(function(nut){
+    nut.addEventListener("click", function(){
+      var sec=nut.parentElement, dangMo=sec.classList.contains("open");
       document.querySelectorAll(".sec").forEach(function(s){ s.classList.remove("open"); });
       if(!dangMo) sec.classList.add("open");
     });
   });
-  document.querySelectorAll("[data-k]").forEach(function(el){
-    var ev = el.type === "checkbox" ? "change" : "input";
-    el.addEventListener(ev, function(){
-      if(el.type === "checkbox") danhDau(el);
-      luu();
-    });
-  });
-
-  /* bấm vào cả dòng cũng tick được — ô vuông nhỏ khó bấm trên điện thoại */
-  capNhatChip();
 })();
 </script>
