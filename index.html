@@ -193,6 +193,14 @@
   .tt .r:hover{background:var(--surface-2)}
   .tt .r:last-child{border-bottom:0}
   .tt input[type=checkbox]{width:20px;height:20px;accent-color:var(--done);align-self:center}
+  .tt .r .gt{
+    grid-column:1/-1;display:none;font-size:12.5px;line-height:1.5;color:var(--muted);
+    background:var(--ground);border-left:2px solid var(--blue);border-radius:0 6px 6px 0;
+    padding:8px 11px;margin-top:8px;
+  }
+  .tt .r .gt b{color:var(--ink)}
+  .tt .r.mo .gt{display:block}
+  .tt .s{cursor:pointer;border-bottom:1px dotted var(--muted)}
   .tt .d{font-size:13px}
   .tt .d small{display:block;color:var(--muted);font-size:11px}
   .tt .s{font-variant-numeric:tabular-nums;font-size:13.5px;white-space:nowrap}
@@ -336,11 +344,11 @@
       <div class="note">Các mốc thanh toán của hai bạn.</div>
 
       <div class="tt">
-        <div class="r on"><span class="d">Cọc lần 1<small>03/09/2026 — đã thu</small></span><span class="s">5.000.000đ</span></div>
-        <div class="r"><span class="d">Thanh toán lần 2<small>hẹn 13/09/2026</small></span><span class="s">12.000.000đ</span></div>
-        <div class="r"><span class="d">Thanh toán lần 3<small>06/10/2026, ngày chụp pre — nốt gói pre 3.800.000đ + 10.000.000đ gói tiệc</small></span><span class="s">13.800.000đ</span></div>
-        <div class="r"><span class="d">Thanh toán lần 4<small>trước 15/11/2026</small></span><span class="s">9.800.000đ</span></div>
-        <div class="r"><span class="d">Khoản book thêm 08/09<small>2 Book Care — chưa xếp vào đợt nào</small></span><span class="s">2.100.000đ</span></div>
+        <div class="r on"><span class="d">Cọc lần 1<small>03/09/2026 — đã thu</small></span><span class="s">5.000.000đ</span><div class="gt">Tiền giữ lịch ngày cưới, đã thu ngày 03/09/2026. Khoản này trừ thẳng vào tổng giá trị hợp đồng, không phải phí riêng.</div></div>
+        <div class="r"><span class="d">Thanh toán lần 2<small>hẹn 13/09/2026</small></span><span class="s">12.000.000đ</span><div class="gt">Gồm <b>10.000.000đ</b> tiền gói và <b>2.000.000đ</b> phụ phí trễ vai rời — studio may thêm phần trễ vai mềm cho 2 váy tiệc (1.000.000đ) và 2 váy chụp (1.000.000đ).</div></div>
+        <div class="r"><span class="d">Thanh toán lần 3<small>06/10/2026, ngày chụp pre — nốt gói pre 3.800.000đ + 10.000.000đ gói tiệc</small></span><span class="s">13.800.000đ</span><div class="gt">Thu trong ngày chụp pre 06/10/2026. Gồm <b>3.800.000đ</b> nốt phần gói chụp pre-wedding (gói SG Outdoor 18.800.000đ) và <b>10.000.000đ</b> là một nửa gói chụp tiệc.</div></div>
+        <div class="r"><span class="d">Thanh toán lần 4<small>trước 15/11/2026</small></span><span class="s">9.800.000đ</span><div class="gt">Nửa còn lại của gói chụp tiệc (gói tiệc 19.800.000đ), thanh toán trước ngày tiệc 15/11/2026.</div></div>
+        <div class="r"><span class="d">Khoản book thêm 08/09<small>2 Book Care — chưa xếp vào đợt nào</small></span><span class="s">2.100.000đ</span><div class="gt">Hai bạn book thêm dịch vụ <b>Book Care</b> — một bạn của studio đi cùng cô dâu suốt buổi để chỉnh váy, giữ voan, sửa tóc và hỗ trợ trong lúc chụp: buổi chụp pre <b>500.000đ</b> và ngày tiệc <b>1.600.000đ</b>. Khoản này chưa xếp vào đợt thu nào, studio sẽ báo hai bạn sau.</div></div>
       </div>
     </div>
   </section>
@@ -617,6 +625,12 @@
   }
   veTL("chup", MAC_DINH.chup);
   veTL("tiec", MAC_DINH.tiec);
+
+  document.querySelectorAll(".tt .r").forEach(function(r){
+    if(!r.querySelector(".gt")) return;
+    r.style.cursor = "pointer";
+    r.addEventListener("click", function(){ r.classList.toggle("mo"); });
+  });
 
   document.querySelectorAll(".sec .head").forEach(function(nut){
     nut.addEventListener("click", function(){
