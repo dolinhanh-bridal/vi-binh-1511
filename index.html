@@ -267,6 +267,18 @@
     .tlh-t{font-size:18px}
     footer{font-size:12.5px}
   }
+
+  .lb{position:fixed;inset:0;background:rgba(12,20,26,.94);display:none;z-index:99;
+      align-items:center;justify-content:center;touch-action:none}
+  .lb.mo{display:flex}
+  .lb img{max-width:100%;max-height:86vh;object-fit:contain;border-radius:4px}
+  .lb .dong{position:absolute;top:14px;right:16px;width:40px;height:40px;border:0;border-radius:50%;
+      background:rgba(255,255,255,.15);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+  .lb .qua{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;
+      background:rgba(255,255,255,.15);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+  .lb .qua.tr{left:10px} .lb .qua.ph{right:10px}
+  .lb .dem{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:12.5px;opacity:.8}
+  .mb img{cursor:zoom-in}
 </style>
 
 <div class="wrap">
@@ -519,5 +531,35 @@
       if(!dangMo) sec.classList.add("open");
     });
   });
+
+  var lb=document.createElement("div"); lb.className="lb";
+  lb.innerHTML='<button class="dong" aria-label="Đóng">×</button><button class="qua tr" aria-label="Ảnh trước">‹</button><img alt=""><button class="qua ph" aria-label="Ảnh sau">›</button><div class="dem"></div>';
+  document.body.appendChild(lb);
+  var anh=[].slice.call(document.querySelectorAll(".mb img")), vt=0;
+  function hien(i){
+    if(i<0) i=anh.length-1; if(i>=anh.length) i=0;
+    vt=i; lb.querySelector("img").src=anh[i].src;
+    lb.querySelector(".dem").textContent=(i+1)+" / "+anh.length;
+    lb.classList.add("mo"); document.body.style.overflow="hidden";
+  }
+  function dong(){ lb.classList.remove("mo"); document.body.style.overflow=""; }
+  anh.forEach(function(im,i){ im.addEventListener("click", function(){ hien(i); }); });
+  lb.querySelector(".dong").addEventListener("click", dong);
+  lb.querySelector(".qua.tr").addEventListener("click", function(e){ e.stopPropagation(); hien(vt-1); });
+  lb.querySelector(".qua.ph").addEventListener("click", function(e){ e.stopPropagation(); hien(vt+1); });
+  lb.addEventListener("click", function(e){ if(e.target===lb || e.target.tagName==="IMG") dong(); });
+  document.addEventListener("keydown", function(e){
+    if(!lb.classList.contains("mo")) return;
+    if(e.key==="Escape") dong();
+    if(e.key==="ArrowLeft") hien(vt-1);
+    if(e.key==="ArrowRight") hien(vt+1);
+  });
+  var x0=null;
+  lb.addEventListener("touchstart", function(e){ x0=e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend", function(e){
+    if(x0===null) return;
+    var d=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(d)>45) hien(vt+(d<0?1:-1));
+  }, {passive:true});
 })();
 </script>
