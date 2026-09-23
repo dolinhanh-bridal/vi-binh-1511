@@ -304,6 +304,25 @@
   label.f[data-ma] textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--ground);
     border:1px solid var(--line);border-radius:8px;padding:10px 11px;line-height:1.5;resize:vertical;min-height:110px}
   label.f[data-ma] textarea:focus{outline:2px solid var(--blue);outline-offset:-1px;background:var(--surface)}
+
+  /* map quy trình chỉnh ảnh */
+  ul.ck.map{position:relative;padding:4px 0 0 0}
+  ul.ck.map::before{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:2px;background:var(--line)}
+  ul.ck.map li{border-bottom:0;padding:7px 6px;align-items:center;position:relative}
+  ul.ck.map .so{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:Lora,Georgia,serif;font-weight:600;font-size:14px;position:relative;z-index:1}
+  ul.ck.map li.s .so{background:var(--surface);color:var(--blue);border:2px solid var(--blue)}
+  ul.ck.map li.b .so{background:var(--blue);color:#fff;border:2px solid var(--blue)}
+  ul.ck.map .ai{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block}
+  ul.ck.map li.b .ai{color:var(--blue);font-weight:600}
+  ul.ck.map .txt small{font-style:italic}
+  .chu-giai{display:flex;gap:14px;font-size:11px;color:var(--muted);padding:0 6px}
+  .chu-giai i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  .the{display:flex;flex-wrap:wrap;gap:6px}
+  .the span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12.5px}
+  .the span b{color:var(--blue)}
+  ul.gon{list-style:none;margin:0;padding:8px 11px;display:flex;flex-direction:column;gap:5px;font-size:13px}
+  ul.gon li small{color:var(--muted);font-style:italic}
 </style>
 
 <div class="wrap">
@@ -420,52 +439,39 @@
     </div>
   </section>
 
-  <!-- QUY TRÌNH CHỈNH SỬA ẢNH (sao Oanh × Luke, 23/09/2026) -->
+  <!-- QUY TRÌNH CHỈNH SỬA ẢNH — dạng map (23/09/2026) -->
   <section class="sec" data-sec="chinhsua">
     <button class="head" type="button"><span class="num">4</span><span class="t">Quy trình chỉnh sửa ảnh</span><span class="arrow">›</span></button>
     <div class="body">
-      <div class="note">Các bước lần lượt sau buổi chụp, hai bạn theo đúng thứ tự này nhé.</div>
-
-      <div class="lk" id="link-goc">
-        <div class="lk-t">Link file gốc buổi chụp 06/10</div>
-        <div style="font-size:12.5px;color:var(--muted)">Studio gửi link <b>sau buổi chụp 06/10</b>. Nhận link hai bạn <b>tải về máy</b> ngay nhé — link <b>tự xoá sau 5 ngày</b>.</div>
-      </div>
-
-      <div class="goi">
-        <div class="goi-h">Hướng dẫn <b>chọn ảnh</b></div>
-        <ul class="ck">
-          <li><span class="txt">Chọn <b>40 ảnh</b> để studio chỉnh sửa<small>Đúng số ảnh photoshop trong gói SG Outdoor · chọn trong 3 ngày để kịp tiến độ gửi demo màu</small></span></li>
-          <li><span class="txt">Chỉ gửi <b>mã ảnh</b><small>Không gửi lại ảnh tải về · gõ mã vào ô bên dưới rồi chụp màn hình gửi studio</small></span></li>
-          <li><span class="txt">Ghi rõ mã nào làm <b>ảnh phóng</b>, mã nào làm <b>ảnh để bàn</b><small>Gói có 1 ảnh phóng pha lê 60×90 và 2 ảnh bàn 15×21 · có ghi tên hay ngày cưới lên ảnh không</small></span></li>
-          <li><span class="txt">Note yêu cầu chỉnh sửa cần lưu ý (nếu có)</span></li>
-          <li><span class="txt">Gửi <b>3 bài hát</b> tổng 10 – 15 phút<small>Để studio làm slideshow ảnh</small></span></li>
-          <li><span class="txt">Lưu ý về chỉnh sửa<small>Team PTS nắn chỉnh theo góc nhìn phổ thông. Nếu hai bạn quen dùng app và biết rõ góc cạnh khuôn mặt, dáng người cần chỉnh ra sao, vui lòng note theo từng ảnh. Team không nhận đổi phông nền hay ghép thêm hình ảnh khác.</small></span></li>
-        </ul>
-      </div>
+      <div class="chu-giai"><span><i style="background:var(--blue)"></i>Hai bạn làm</span><span><i style="border:2px solid var(--blue);width:6px;height:6px"></i>Studio làm</span></div>
+      <ul class="ck map" data-ck>
+        <li class="s"><span class="so">1</span><span class="txt"><span class="ai">Studio</span><b>Gửi link ảnh gốc</b><small>sau 06/10 · tải về trong 5 ngày</small></span></li>
+        <li class="b"><span class="so">2</span><span class="txt"><span class="ai">Hai bạn</span><b>Gửi mã ảnh đã chọn</b><small>3 ngày</small></span></li>
+        <li class="s"><span class="so">3</span><span class="txt"><span class="ai">Studio</span><b>Gửi 2 màu demo</b></span></li>
+        <li class="b"><span class="so">4</span><span class="txt"><span class="ai">Hai bạn</span><b>Chọn 1 màu</b><small>7 ngày</small></span></li>
+        <li class="s"><span class="so">5</span><span class="txt"><span class="ai">Studio</span><b>Chỉnh ảnh</b></span></li>
+        <li class="b"><span class="so">6</span><span class="txt"><span class="ai">Hai bạn</span><b>Duyệt ảnh</b><small>sửa tối đa 2 lần</small></span></li>
+        <li class="s"><span class="so">7</span><span class="txt"><span class="ai">Studio</span><b>Làm album</b><small>21 ngày · hai bạn duyệt chữ, sửa tối đa 2 lần</small></span></li>
+        <li class="s"><span class="so">8</span><span class="txt"><span class="ai">Studio</span><b>In sản phẩm</b><small>14 ngày</small></span></li>
+        <li class="b"><span class="so">9</span><span class="txt"><span class="ai">Hai bạn</span><b>Nhận sản phẩm 🎉</b></span></li>
+      </ul>
 
       <div class="goi">
-        <div class="goi-h">Các bước <b>sau buổi chụp</b></div>
-        <ul class="ck" data-ck>
-          <li><span class="txt"><b>Trả file gốc</b> — sau buổi chụp 06/10<small>Hai bạn chọn ảnh trong <b>3 ngày</b> · link tự xoá sau <b>5 ngày</b></small></span></li>
-          <li><span class="txt"><b>Hai bạn gửi mã ảnh đã chọn</b><small>Chỉ gửi mã ảnh · ghi rõ mã nào làm ảnh phóng (có ghi tên và ngày cưới không), mã nào làm ảnh bàn · note yêu cầu chỉnh sửa nếu có · gửi kèm 3 bài hát tổng 10 – 15 phút để làm slideshow</small></span></li>
-          <li><span class="txt"><b>Gửi màu demo</b> — 2 file mẫu<small>Hai bạn chọn 1 màu trong <b>7 ngày</b></small></span></li>
-          <li><span class="txt"><b>Studio chỉnh ảnh theo màu đã chọn</b><small>Màu ảnh · làm sạch da (nốt ruồi, hình xăm, mụn) · khuôn mặt (nhỏ mặt, cánh mũi, sống mũi) · hình dáng (tay chân thon, cân đối) · trang phục (nếp gấp) · tóc con</small></span></li>
-          <li><span class="txt"><b>Hai bạn duyệt ảnh</b> — sửa tối đa <b>2 lần</b><small>Mỗi lần note rõ ảnh nào, sửa chỗ nào</small></span></li>
-          <li><span class="txt"><b>Hoàn thiện album</b><small>Trong <b>21 ngày</b> · hai bạn sửa tối đa <b>2 lần</b> · duyệt luôn câu chữ trên album</small></span></li>
-          <li><span class="txt"><b>In sản phẩm</b><small>Trong <b>14 ngày</b> sau khi duyệt xong</small></span></li>
-          <li><span class="txt"><b>Nhận sản phẩm hoàn thiện</b> &amp; gửi feedback</span></li>
-        </ul>
+        <div class="goi-h">Bước 2 · gửi studio <b>những gì</b></div>
+        <div class="the" style="padding:10px 11px">
+          <span><b>40</b> mã ảnh</span><span><b>1</b> mã ảnh phóng 60×90</span><span><b>2</b> mã ảnh bàn 15×21</span><span><b>3</b> bài hát · 10–15 phút</span><span>Note sửa (nếu có)</span>
+        </div>
       </div>
 
-      <label class="f" data-ma><span class="lb">Ô ghi mã ảnh — cô dâu điền vào đây</span><textarea data-ma-k="1" rows="5" placeholder="VD:&#10;IMG_0412 · ảnh phóng, có ghi tên + ngày cưới&#10;IMG_0518 · ảnh bàn&#10;IMG_0733, IMG_0741, IMG_0802…"></textarea></label>
-      <div class="note" data-ma>Điền xong hai bạn <b>chụp màn hình gửi lại studio</b> nhé. Chữ gõ vào đây chỉ lưu trên máy của hai bạn, studio không tự nhận được.</div>
+      <label class="f" data-ma><span class="lb">Ô ghi mã ảnh — gõ xong chụp màn hình gửi studio</span><textarea data-ma-k="1" rows="4" placeholder="VD:&#10;IMG_0412 · ảnh phóng, có tên + ngày cưới&#10;IMG_0518 · ảnh bàn&#10;IMG_0733, IMG_0741…"></textarea></label>
 
       <div class="goi">
-        <div class="goi-h">Vài lưu ý khi xem và duyệt ảnh</div>
-        <ul class="ck">
-          <li><span class="txt">Studio nắn chỉnh theo <b>góc nhìn phổ thông</b><small>Nếu hai bạn quen dùng app và biết rõ muốn nắn chỗ nào, hãy note lại từng góc cụ thể</small></span></li>
-          <li><span class="txt">Xem hình trên <b>thiết bị Apple</b><small>Màn hình khác có thể lệch màu so với bản studio duyệt</small></span></li>
-          <li><span class="txt">Giữ đúng tiến độ team hẹn<small>Chậm quá 1 tháng sẽ phát sinh phí</small></span></li>
+        <div class="goi-h">Lưu ý</div>
+        <ul class="gon">
+          <li>Chỉnh theo <b>góc nhìn phổ thông</b> <small>— muốn khác, note từng ảnh</small></li>
+          <li><b>Không</b> đổi nền, <b>không</b> ghép ảnh</li>
+          <li>Xem ảnh trên <b>máy Apple</b> <small>— cho đúng màu</small></li>
+          <li>Chậm quá <b>1 tháng</b> → phát sinh phí</li>
         </ul>
       </div>
     </div>
