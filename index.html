@@ -299,6 +299,11 @@
   div.lb .qua.tr{left:10px} div.lb .qua.ph{right:10px}
   div.lb .dem{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:12.5px;opacity:.8}
   .mb img{cursor:zoom-in}
+  label.f[data-ma]{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+  label.f[data-ma] .lb{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  label.f[data-ma] textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--ground);
+    border:1px solid var(--line);border-radius:8px;padding:10px 11px;line-height:1.5;resize:vertical;min-height:110px}
+  label.f[data-ma] textarea:focus{outline:2px solid var(--blue);outline-offset:-1px;background:var(--surface)}
 </style>
 
 <div class="wrap">
@@ -403,7 +408,7 @@
         </ul>
       </div>
 
-      <div class="note">Số địa điểm, số váy, ekip và thời gian chụp nằm ở mục <b>5 · Timeline chụp pre</b>. Tiền và phần book thêm nằm ở mục <b>1 · HĐ &amp; chi trả</b>.</div>
+      <div class="note">Số địa điểm, số váy, ekip và thời gian chụp nằm ở mục <b>7 · Timeline chụp pre</b>. Tiền và phần book thêm nằm ở mục <b>1 · HĐ &amp; chi trả</b>.</div>
 
       <div class="goi">
         <div class="goi-h">Chụp tiệc <b>15/11/2026</b> — 1 máy quay + 1 máy chụp</div>
@@ -415,9 +420,60 @@
     </div>
   </section>
 
+  <!-- QUY TRÌNH CHỈNH SỬA ẢNH (sao Oanh × Luke, 23/09/2026) -->
+  <section class="sec" data-sec="chinhsua">
+    <button class="head" type="button"><span class="num">4</span><span class="t">Quy trình chỉnh sửa ảnh</span><span class="arrow">›</span></button>
+    <div class="body">
+      <div class="note">Các bước lần lượt sau buổi chụp, hai bạn theo đúng thứ tự này nhé.</div>
+
+      <div class="lk" id="link-goc">
+        <div class="lk-t">Link file gốc buổi chụp 06/10</div>
+        <div style="font-size:12.5px;color:var(--muted)">Studio gửi link <b>sau buổi chụp 06/10</b>. Nhận link hai bạn <b>tải về máy</b> ngay nhé — link <b>tự xoá sau 5 ngày</b>.</div>
+      </div>
+
+      <div class="goi">
+        <div class="goi-h">Hướng dẫn <b>chọn ảnh</b></div>
+        <ul class="ck">
+          <li><span class="txt">Chọn <b>40 ảnh</b> để studio chỉnh sửa<small>Đúng số ảnh photoshop trong gói SG Outdoor · chọn trong 3 ngày để kịp tiến độ gửi demo màu</small></span></li>
+          <li><span class="txt">Chỉ gửi <b>mã ảnh</b><small>Không gửi lại ảnh tải về · gõ mã vào ô bên dưới rồi chụp màn hình gửi studio</small></span></li>
+          <li><span class="txt">Ghi rõ mã nào làm <b>ảnh phóng</b>, mã nào làm <b>ảnh để bàn</b><small>Gói có 1 ảnh phóng pha lê 60×90 và 2 ảnh bàn 15×21 · có ghi tên hay ngày cưới lên ảnh không</small></span></li>
+          <li><span class="txt">Note yêu cầu chỉnh sửa cần lưu ý (nếu có)</span></li>
+          <li><span class="txt">Gửi <b>3 bài hát</b> tổng 10 – 15 phút<small>Để studio làm slideshow ảnh</small></span></li>
+          <li><span class="txt">Lưu ý về chỉnh sửa<small>Team PTS nắn chỉnh theo góc nhìn phổ thông. Nếu hai bạn quen dùng app và biết rõ góc cạnh khuôn mặt, dáng người cần chỉnh ra sao, vui lòng note theo từng ảnh. Team không nhận đổi phông nền hay ghép thêm hình ảnh khác.</small></span></li>
+        </ul>
+      </div>
+
+      <div class="goi">
+        <div class="goi-h">Các bước <b>sau buổi chụp</b></div>
+        <ul class="ck" data-ck>
+          <li><span class="txt"><b>Trả file gốc</b> — sau buổi chụp 06/10<small>Hai bạn chọn ảnh trong <b>3 ngày</b> · link tự xoá sau <b>5 ngày</b></small></span></li>
+          <li><span class="txt"><b>Hai bạn gửi mã ảnh đã chọn</b><small>Chỉ gửi mã ảnh · ghi rõ mã nào làm ảnh phóng (có ghi tên và ngày cưới không), mã nào làm ảnh bàn · note yêu cầu chỉnh sửa nếu có · gửi kèm 3 bài hát tổng 10 – 15 phút để làm slideshow</small></span></li>
+          <li><span class="txt"><b>Gửi màu demo</b> — 3 file mẫu<small>Hai bạn chọn 1 màu trong <b>7 ngày</b></small></span></li>
+          <li><span class="txt"><b>Studio chỉnh ảnh theo màu đã chọn</b><small>Màu ảnh · làm sạch da (nốt ruồi, hình xăm, mụn) · khuôn mặt (nhỏ mặt, cánh mũi, sống mũi) · hình dáng (tay chân thon, cân đối) · trang phục (nếp gấp) · tóc con</small></span></li>
+          <li><span class="txt"><b>Hai bạn duyệt ảnh</b> — sửa tối đa <b>2 lần</b><small>Mỗi lần note rõ ảnh nào, sửa chỗ nào</small></span></li>
+          <li><span class="txt"><b>Hoàn thiện album</b><small>Trong <b>21 ngày</b> · hai bạn sửa tối đa <b>2 lần</b> · duyệt luôn câu chữ trên album</small></span></li>
+          <li><span class="txt"><b>In sản phẩm</b><small>Trong <b>14 ngày</b> sau khi duyệt xong</small></span></li>
+          <li><span class="txt"><b>Nhận sản phẩm hoàn thiện</b> &amp; gửi feedback</span></li>
+        </ul>
+      </div>
+
+      <label class="f" data-ma><span class="lb">Ô ghi mã ảnh — cô dâu điền vào đây</span><textarea data-ma-k="1" rows="5" placeholder="VD:&#10;IMG_0412 · ảnh phóng, có ghi tên + ngày cưới&#10;IMG_0518 · ảnh bàn&#10;IMG_0733, IMG_0741, IMG_0802…"></textarea></label>
+      <div class="note" data-ma>Điền xong hai bạn <b>chụp màn hình gửi lại studio</b> nhé. Chữ gõ vào đây chỉ lưu trên máy của hai bạn, studio không tự nhận được.</div>
+
+      <div class="goi">
+        <div class="goi-h">Vài lưu ý khi xem và duyệt ảnh</div>
+        <ul class="ck">
+          <li><span class="txt">Studio nắn chỉnh theo <b>góc nhìn phổ thông</b><small>Nếu hai bạn quen dùng app và biết rõ muốn nắn chỗ nào, hãy note lại từng góc cụ thể</small></span></li>
+          <li><span class="txt">Xem hình trên <b>thiết bị Apple</b><small>Màn hình khác có thể lệch màu so với bản studio duyệt</small></span></li>
+          <li><span class="txt">Giữ đúng tiến độ team hẹn<small>Chậm quá 1 tháng sẽ phát sinh phí</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- 3. THIỆP ONLINE -->
   <section class="sec" data-sec="thiep">
-    <button class="head" type="button"><span class="num">4</span><span class="t">Thiệp online</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">5</span><span class="t">Thiệp online</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="note">Hai bạn xem <b>thiệp mẫu</b> trước, rồi điền <b>form</b> — thiệp sẽ tự dựng và link gửi về mail của hai bạn.</div>
 
@@ -438,7 +494,7 @@
 
   <!-- 4. MOODBOARD PRE -->
   <section class="sec" data-sec="mood">
-    <button class="head" type="button"><span class="num">5</span><span class="t">Moodboard Pre</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">6</span><span class="t">Moodboard Pre</span><span class="arrow">›</span></button>
     <div class="body">
       
       <div class="note">Moodboard chia theo 2 nơi chụp. Ảnh dưới là <b>ảnh thật của Dolinhanh · Nupakachi</b> để hai bạn hình dung tinh thần từng set — không phải khuôn mẫu phải chụp y hệt.</div>
@@ -476,7 +532,7 @@
 
   <!-- 5. TIMELINE CHỤP PRE -->
   <section class="sec" data-sec="chup">
-    <button class="head" type="button"><span class="num">6</span><span class="t">Timeline chụp pre — 06/10</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">7</span><span class="t">Timeline chụp pre — 06/10</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="tlh">
         <div class="tlh-t">Timeline chụp ảnh Pre-wedding</div>
@@ -494,7 +550,7 @@
 
   <!-- 6. TIMELINE TIỆC -->
   <section class="sec" data-sec="tiec">
-    <button class="head" type="button"><span class="num">7</span><span class="t">Timeline tiệc — 15/11</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">8</span><span class="t">Timeline tiệc — 15/11</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="tlh">
         <div class="tlh-t">Timeline chụp tiệc cưới</div>
@@ -512,7 +568,7 @@
 
   <!-- 7. MẪU VÁY CD ĐÃ CHỌN -->
   <section class="sec" data-sec="vay">
-    <button class="head" type="button"><span class="num">8</span><span class="t">Các mẫu váy CD đã chọn</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">9</span><span class="t">Các mẫu váy CD đã chọn</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="note">4 mẫu hai bạn đã chọn. Hai váy tiệc studio làm thêm <b>trễ vai mềm</b> và <b>đáp lưng voan cùng chất váy</b>.</div>
       <div class="goi">
@@ -534,7 +590,7 @@
 
   <!-- 8. CLIP REEL TẶNG KÈM -->
   <section class="sec" data-sec="reel">
-    <button class="head" type="button"><span class="num">9</span><span class="t">Gợi ý clip reel</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">10</span><span class="t">Gợi ý clip reel</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="note">Các style clip reel để hai bạn tham khảo — xem xong cho studio biết thích kiểu nào nhé.</div>
       <div class="link" style="grid-template-columns:repeat(2,1fr)">
@@ -570,7 +626,7 @@
 
   <!-- 10. EBOOK CẨM NANG CÔ DÂU -->
   <section class="sec" data-sec="ebook">
-    <button class="head" type="button"><span class="num">10</span><span class="t">Ebook cẩm nang cô dâu</span><span class="arrow">›</span></button>
+    <button class="head" type="button"><span class="num">11</span><span class="t">Ebook cẩm nang cô dâu</span><span class="arrow">›</span></button>
     <div class="body">
       <div class="note"><b>The Bride's Dress Guide</b> — cuốn cẩm nang 24 trang Dolinhanh Bridal tặng riêng cô dâu: cách chọn dáng váy hợp người, chọn voan, thứ tự chuẩn bị trước ngày cưới.</div>
       <div class="link">
@@ -627,6 +683,12 @@
   }
   veTL("chup", MAC_DINH.chup);
   veTL("tiec", MAC_DINH.tiec);
+
+  var oma=document.querySelector('[data-ma-k]');
+  if(oma){
+    try{ oma.value=localStorage.getItem("ma-anh-vi-binh")||""; }catch(e){}
+    oma.addEventListener("input", function(){ try{ localStorage.setItem("ma-anh-vi-binh", oma.value); }catch(e){} });
+  }
 
   document.querySelectorAll(".tt .r").forEach(function(r){
     if(!r.querySelector(".gt")) return;
